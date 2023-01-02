@@ -14,6 +14,7 @@
 		099896232961AE6500BD3DAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 099896212961AE6500BD3DAF /* LaunchScreen.storyboard */; };
 		0998962B2961B61000BD3DAF /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0998962A2961B61000BD3DAF /* TableViewCell.swift */; };
 		0998962D2961C15C00BD3DAF /* ContactBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0998962C2961C15C00BD3DAF /* ContactBook.swift */; };
+		099896332962E74D00BD3DAF /* ContactsAppCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 099896312962E74D00BD3DAF /* ContactsAppCoreData.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		099896242961AE6500BD3DAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0998962A2961B61000BD3DAF /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		0998962C2961C15C00BD3DAF /* ContactBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactBook.swift; sourceTree = "<group>"; };
+		099896322962E74D00BD3DAF /* ContactsAppCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ContactsAppCoreData.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				0998961F2961AE6500BD3DAF /* Assets.xcassets */,
 				099896212961AE6500BD3DAF /* LaunchScreen.storyboard */,
 				099896242961AE6500BD3DAF /* Info.plist */,
+				099896312962E74D00BD3DAF /* ContactsAppCoreData.xcdatamodeld */,
 			);
 			path = ContactsApp;
 			sourceTree = "<group>";
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				099896332962E74D00BD3DAF /* ContactsAppCoreData.xcdatamodeld in Sources */,
 				0998961B2961AE6300BD3DAF /* ViewController.swift in Sources */,
 				0998962B2961B61000BD3DAF /* TableViewCell.swift in Sources */,
 				0998962D2961C15C00BD3DAF /* ContactBook.swift in Sources */,
@@ -352,6 +356,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		099896312962E74D00BD3DAF /* ContactsAppCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				099896322962E74D00BD3DAF /* ContactsAppCoreData.xcdatamodel */,
+			);
+			currentVersion = 099896322962E74D00BD3DAF /* ContactsAppCoreData.xcdatamodel */;
+			path = ContactsAppCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0998960B2961AE6300BD3DAF /* Project object */;
 }

@@ -6,10 +6,19 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
     
     var contactBook = ContactBook()
+    
+    private lazy var addButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "plus.circle"), for: .normal)
+        button.addTarget(self, action: #selector(addButtonPressed), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
@@ -17,13 +26,29 @@ class ViewController: UIViewController {
         return tableView
     }()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest: NSFetchRequest<Contact> = Contact.fetchRequest()
+        do {
+            contactBook.contacts = try context.fetch(fetchRequest)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
     }
     
     func configureView() {
+        view.backgroundColor = .white
         view.addSubview(tableView)
+        view.addSubview(addButton)
         setConstrains()
         tableView.register(TableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.delegate = self
@@ -31,10 +56,18 @@ class ViewController: UIViewController {
     }
 
     func setConstrains() {
-        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        addButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        addButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
+        
+        tableView.topAnchor.constraint(equalTo: addButton.bottomAnchor, constant: 16).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+    }
+    
+    @objc func addButtonPressed() {
+        contactBook.addContact(name: "Default name", number: "Default number")
+        tableView.reloadData()
     }
 
 }
@@ -48,7 +81,9 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? TableViewCell {
-            cell.setupCell(withName: contactBook.contacts[indexPath.row].name)
+            if let name = contactBook.contacts[indexPath.row].name {
+                cell.setupCell(withName: name)
+            }
             return cell
         }
         fatalError("Could not dequeue reusable cell")
