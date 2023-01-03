@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TableViewCell: UITableViewCell {
+final class TableViewCell: UITableViewCell {
     
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
@@ -29,7 +29,7 @@ class TableViewCell: UITableViewCell {
         nameLabel.text = name
     }
     
-    func setConstrains() {
+    private func setConstrains() {
         nameLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
         nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
         nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 16).isActive = true

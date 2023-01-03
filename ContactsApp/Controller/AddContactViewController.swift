@@ -17,7 +17,7 @@ final class AddContactViewController: UIViewController {
     private var indexPath: IndexPath?
     var delegate: AddContactViewControllerDelegate?
     
-    private var saveButton: UIButton = {
+    private lazy var saveButton: UIButton = {
         let button = UIButton()
         button.setTitle("Save", for: .normal)
         button.setTitleColor(.link, for: .normal)
@@ -26,23 +26,24 @@ final class AddContactViewController: UIViewController {
         return button
     }()
     
-    private var nameField: UITextField = {
+    private lazy var nameField: UITextField = {
         let nameField = UITextField()
         nameField.placeholder = "Name"
-        nameField.tintColor = .lightGray
+        nameField.tintColor = .secondaryLabel
         nameField.translatesAutoresizingMaskIntoConstraints = false
         return nameField
     }()
     
-    private var numberField: UITextField = {
+    private lazy var numberField: UITextField = {
         let numberField = UITextField()
+        numberField.keyboardType = .numberPad
         numberField.placeholder = "Phone number"
-        numberField.tintColor = .lightGray
+        numberField.tintColor = .secondaryLabel
         numberField.translatesAutoresizingMaskIntoConstraints = false
         return numberField
     }()
     
-    private var errorMessage: UILabel = {
+    private lazy var errorMessage: UILabel = {
         let label = UILabel()
         label.textColor = .red
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -54,13 +55,13 @@ final class AddContactViewController: UIViewController {
     }
     
     init(indexPath: IndexPath, contactBook: ContactBook) {
+        super.init(nibName: nil, bundle: nil)
         self.contactBook = contactBook
         let contact = contactBook.contacts[indexPath.row]
         nameField.text = contact.name
         numberField.text = contact.number
         saveButton.setTitle("Save changes", for: .normal)
         self.indexPath = indexPath
-        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -94,7 +95,7 @@ final class AddContactViewController: UIViewController {
     }
     
     private func layoutView() {
-        view.backgroundColor = .white
+        view.backgroundColor = .secondarySystemBackground
         view.addSubview(saveButton)
         view.addSubview(nameField)
         view.addSubview(numberField)

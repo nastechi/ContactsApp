@@ -12,7 +12,7 @@ protocol ContactBookDelegate {
     func didUpdateContacts()
 }
 
-class ContactBook {
+final class ContactBook {
     var delegate: ContactBookDelegate?
     var contacts: [Contact] = []
     

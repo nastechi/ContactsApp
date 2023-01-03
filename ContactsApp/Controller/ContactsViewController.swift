@@ -8,9 +8,9 @@
 import UIKit
 import CoreData
 
-class ContactsViewController: UIViewController {
+final class ContactsViewController: UIViewController {
     
-    var contactBook = ContactBook()
+    private var contactBook = ContactBook()
     
     private lazy var addButton: UIButton = {
         let button = UIButton()
@@ -46,8 +46,8 @@ class ContactsViewController: UIViewController {
         configureView()
     }
     
-    func configureView() {
-        view.backgroundColor = .white
+    private func configureView() {
+        view.backgroundColor = .systemBackground
         view.addSubview(tableView)
         view.addSubview(addButton)
         setConstrains()
@@ -56,7 +56,7 @@ class ContactsViewController: UIViewController {
         tableView.dataSource = self
     }
 
-    func setConstrains() {
+    private func setConstrains() {
         addButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         addButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
         
@@ -66,7 +66,7 @@ class ContactsViewController: UIViewController {
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
     
-    @objc func addButtonPressed() {
+    @objc private func addButtonPressed() {
         let addContactVC = AddContactViewController()
         addContactVC.contactBook = contactBook
         present(addContactVC, animated: true)

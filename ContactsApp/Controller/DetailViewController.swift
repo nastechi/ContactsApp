@@ -25,7 +25,7 @@ final class DetailViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = contactBook.contacts[indexPath.row].name
-        label.textColor = .black
+        label.textColor = .label
         label.font = UIFont.boldSystemFont(ofSize: 16.0)
         return label
     }()
@@ -34,7 +34,7 @@ final class DetailViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = contactBook.contacts[indexPath.row].number
-        label.textColor = .systemGray2
+        label.textColor = .secondaryLabel
         return label
     }()
     
@@ -75,7 +75,7 @@ final class DetailViewController: UIViewController {
     }
     
     private func layoutView() {
-        view.backgroundColor = .white
+        view.backgroundColor = .secondarySystemBackground
         view.addSubview(editButton)
         view.addSubview(nameLabel)
         view.addSubview(numberLabel)
