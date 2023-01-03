@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol AddContactViewControllerDelegate {
+    func didUpdateContact()
+}
+
 final class AddContactViewController: UIViewController {
     
     var contactBook = ContactBook()
+    private var indexPath: IndexPath?
+    var delegate: AddContactViewControllerDelegate?
     
     private var saveButton: UIButton = {
         let button = UIButton()
@@ -42,21 +48,49 @@ final class AddContactViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
+    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    init(indexPath: IndexPath, contactBook: ContactBook) {
+        self.contactBook = contactBook
+        let contact = contactBook.contacts[indexPath.row]
+        nameField.text = contact.name
+        numberField.text = contact.number
+        saveButton.setTitle("Save changes", for: .normal)
+        self.indexPath = indexPath
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         layoutView()
     }
     
     @objc private func saveButtonPressed() {
-        if let name = nameField.text, let number = numberField.text {
-            if !name.isEmpty, !number.isEmpty {
-                contactBook.addContact(name: name, number: number)
+        if saveButton.currentTitle == "Save changes" {
+            if let name = nameField.text, let number = numberField.text {
+                guard !name.isEmpty, !number.isEmpty, indexPath != nil else { return }
+                contactBook.updateContact(contact: contactBook.contacts[indexPath!.row], name: name, number: number)
+                delegate?.didUpdateContact()
                 self.dismiss(animated: true)
                 return
             }
+        } else {
+            if let name = nameField.text, let number = numberField.text {
+                if !name.isEmpty, !number.isEmpty {
+                    contactBook.addContact(name: name, number: number)
+                    self.dismiss(animated: true)
+                    return
+                }
+            }
+            errorMessage.text = "Please fill all the fields."
         }
-        errorMessage.text = "Please fill all the fields."
     }
     
     private func layoutView() {
@@ -71,7 +105,7 @@ final class AddContactViewController: UIViewController {
     private func setupConstrains() {
         saveButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 16).isActive = true
         saveButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
-        saveButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        saveButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
         
         nameField.topAnchor.constraint(equalTo: saveButton.bottomAnchor, constant: 16).isActive = true
         nameField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true

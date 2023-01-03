@@ -36,4 +36,21 @@ class ContactBook {
             print(error.localizedDescription)
         }
     }
+    
+    func updateContact(contact: Contact, name: String, number: String) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let contextContact = context.object(with: contact.objectID) as! Contact
+        contextContact.name = name
+        contextContact.number = number
+        
+        do {
+            try context.save()
+            guard contacts.firstIndex(of: contact) != nil else { return }
+            contacts[contacts.firstIndex(of: contact)!] = contextContact
+            delegate?.didUpdateContacts()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }

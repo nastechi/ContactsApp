@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0950BFCA296404C000EA7218 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0950BFC9296404C000EA7218 /* DetailViewController.swift */; };
 		099896172961AE6300BD3DAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099896162961AE6300BD3DAF /* AppDelegate.swift */; };
 		099896192961AE6300BD3DAF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099896182961AE6300BD3DAF /* SceneDelegate.swift */; };
 		0998961B2961AE6300BD3DAF /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0998961A2961AE6300BD3DAF /* ContactsViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0950BFC9296404C000EA7218 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		099896132961AE6300BD3DAF /* ContactsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		099896162961AE6300BD3DAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		099896182961AE6300BD3DAF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +45,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0950BFCB296404D100EA7218 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0998961A2961AE6300BD3DAF /* ContactsViewController.swift */,
+				09C397802963DF50001CA44B /* AddContactViewController.swift */,
+				0950BFC9296404C000EA7218 /* DetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0950BFCC296404E900EA7218 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0998962C2961C15C00BD3DAF /* ContactBook.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0950BFCD296404F900EA7218 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				0998962A2961B61000BD3DAF /* TableViewCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		0998960A2961AE6300BD3DAF = {
 			isa = PBXGroup;
 			children = (
@@ -64,10 +92,9 @@
 			children = (
 				099896162961AE6300BD3DAF /* AppDelegate.swift */,
 				099896182961AE6300BD3DAF /* SceneDelegate.swift */,
-				0998962C2961C15C00BD3DAF /* ContactBook.swift */,
-				0998961A2961AE6300BD3DAF /* ContactsViewController.swift */,
-				09C397802963DF50001CA44B /* AddContactViewController.swift */,
-				0998962A2961B61000BD3DAF /* TableViewCell.swift */,
+				0950BFCC296404E900EA7218 /* Model */,
+				0950BFCB296404D100EA7218 /* Controller */,
+				0950BFCD296404F900EA7218 /* Components */,
 				0998961F2961AE6500BD3DAF /* Assets.xcassets */,
 				099896212961AE6500BD3DAF /* LaunchScreen.storyboard */,
 				099896242961AE6500BD3DAF /* Info.plist */,
@@ -153,6 +180,7 @@
 				0998962D2961C15C00BD3DAF /* ContactBook.swift in Sources */,
 				099896172961AE6300BD3DAF /* AppDelegate.swift in Sources */,
 				099896192961AE6300BD3DAF /* SceneDelegate.swift in Sources */,
+				0950BFCA296404C000EA7218 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

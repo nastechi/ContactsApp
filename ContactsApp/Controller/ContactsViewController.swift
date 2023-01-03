@@ -74,7 +74,14 @@ class ContactsViewController: UIViewController {
 
 }
 
-extension ContactsViewController: UITableViewDelegate {}
+extension ContactsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let detailVC = DetailViewController(contactBook: contactBook, indexPath: indexPath)
+        present(detailVC, animated: true)
+        
+    }
+}
 
 extension ContactsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
