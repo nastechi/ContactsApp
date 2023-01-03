@@ -9,25 +9,27 @@
 /* Begin PBXBuildFile section */
 		099896172961AE6300BD3DAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099896162961AE6300BD3DAF /* AppDelegate.swift */; };
 		099896192961AE6300BD3DAF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099896182961AE6300BD3DAF /* SceneDelegate.swift */; };
-		0998961B2961AE6300BD3DAF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0998961A2961AE6300BD3DAF /* ViewController.swift */; };
+		0998961B2961AE6300BD3DAF /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0998961A2961AE6300BD3DAF /* ContactsViewController.swift */; };
 		099896202961AE6500BD3DAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0998961F2961AE6500BD3DAF /* Assets.xcassets */; };
 		099896232961AE6500BD3DAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 099896212961AE6500BD3DAF /* LaunchScreen.storyboard */; };
 		0998962B2961B61000BD3DAF /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0998962A2961B61000BD3DAF /* TableViewCell.swift */; };
 		0998962D2961C15C00BD3DAF /* ContactBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0998962C2961C15C00BD3DAF /* ContactBook.swift */; };
 		099896332962E74D00BD3DAF /* ContactsAppCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 099896312962E74D00BD3DAF /* ContactsAppCoreData.xcdatamodeld */; };
+		09C397812963DF50001CA44B /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C397802963DF50001CA44B /* AddContactViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		099896132961AE6300BD3DAF /* ContactsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		099896162961AE6300BD3DAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		099896182961AE6300BD3DAF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0998961A2961AE6300BD3DAF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0998961A2961AE6300BD3DAF /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		0998961F2961AE6500BD3DAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		099896222961AE6500BD3DAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		099896242961AE6500BD3DAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0998962A2961B61000BD3DAF /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		0998962C2961C15C00BD3DAF /* ContactBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactBook.swift; sourceTree = "<group>"; };
 		099896322962E74D00BD3DAF /* ContactsAppCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ContactsAppCoreData.xcdatamodel; sourceTree = "<group>"; };
+		09C397802963DF50001CA44B /* AddContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +65,8 @@
 				099896162961AE6300BD3DAF /* AppDelegate.swift */,
 				099896182961AE6300BD3DAF /* SceneDelegate.swift */,
 				0998962C2961C15C00BD3DAF /* ContactBook.swift */,
-				0998961A2961AE6300BD3DAF /* ViewController.swift */,
+				0998961A2961AE6300BD3DAF /* ContactsViewController.swift */,
+				09C397802963DF50001CA44B /* AddContactViewController.swift */,
 				0998962A2961B61000BD3DAF /* TableViewCell.swift */,
 				0998961F2961AE6500BD3DAF /* Assets.xcassets */,
 				099896212961AE6500BD3DAF /* LaunchScreen.storyboard */,
@@ -144,7 +147,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				099896332962E74D00BD3DAF /* ContactsAppCoreData.xcdatamodeld in Sources */,
-				0998961B2961AE6300BD3DAF /* ViewController.swift in Sources */,
+				0998961B2961AE6300BD3DAF /* ContactsViewController.swift in Sources */,
+				09C397812963DF50001CA44B /* AddContactViewController.swift in Sources */,
 				0998962B2961B61000BD3DAF /* TableViewCell.swift in Sources */,
 				0998962D2961C15C00BD3DAF /* ContactBook.swift in Sources */,
 				099896172961AE6300BD3DAF /* AppDelegate.swift in Sources */,

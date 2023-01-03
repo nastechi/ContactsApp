@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController {
+class ContactsViewController: UIViewController {
     
     var contactBook = ContactBook()
     
@@ -42,6 +42,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        contactBook.delegate = self
         configureView()
     }
     
@@ -66,15 +67,16 @@ class ViewController: UIViewController {
     }
     
     @objc func addButtonPressed() {
-        contactBook.addContact(name: "Default name", number: "Default number")
-        tableView.reloadData()
+        let addContactVC = AddContactViewController()
+        addContactVC.contactBook = contactBook
+        present(addContactVC, animated: true)
     }
 
 }
 
-extension ViewController: UITableViewDelegate {}
+extension ContactsViewController: UITableViewDelegate {}
 
-extension ViewController: UITableViewDataSource {
+extension ContactsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         contactBook.contacts.count
     }
@@ -91,3 +93,9 @@ extension ViewController: UITableViewDataSource {
     
 }
 
+extension ContactsViewController: ContactBookDelegate {
+    
+    func didUpdateContacts() {
+        tableView.reloadData()
+    }
+}

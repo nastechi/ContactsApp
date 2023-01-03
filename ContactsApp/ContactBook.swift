@@ -8,7 +8,12 @@
 import CoreData
 import UIKit
 
+protocol ContactBookDelegate {
+    func didUpdateContacts()
+}
+
 class ContactBook {
+    var delegate: ContactBookDelegate?
     var contacts: [Contact] = []
     
     func addContact(name: String, number: String) {
@@ -26,6 +31,7 @@ class ContactBook {
         do {
             try context.save()
             contacts.append(contactObject)
+            delegate?.didUpdateContacts()
         } catch {
             print(error.localizedDescription)
         }
