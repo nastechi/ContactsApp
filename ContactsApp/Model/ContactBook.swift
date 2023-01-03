@@ -53,4 +53,20 @@ class ContactBook {
             print(error.localizedDescription)
         }
     }
+    
+    func deleteContact(contact: Contact) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let contextContact = context.object(with: contact.objectID) as! Contact
+        context.delete(contextContact)
+        
+        do {
+            try context.save()
+            guard contacts.firstIndex(of: contact) != nil else { return }
+            contacts.remove(at: contacts.firstIndex(of: contact)!)
+            delegate?.didUpdateContacts()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }

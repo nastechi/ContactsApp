@@ -38,6 +38,15 @@ final class DetailViewController: UIViewController {
         return label
     }()
     
+    private lazy var deleteButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Delete contact", for: .normal)
+        button.setTitleColor(.link, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(deleteButtonPressed), for: .touchUpInside)
+        return button
+    }()
+    
     init(contactBook: ContactBook, indexPath: IndexPath) {
         self.contactBook = contactBook
         self.indexPath = indexPath
@@ -60,11 +69,17 @@ final class DetailViewController: UIViewController {
         present(addContactVC, animated: true)
     }
     
+    @objc private func deleteButtonPressed() {
+        contactBook.deleteContact(contact: contactBook.contacts[indexPath.row])
+        self.dismiss(animated: true)
+    }
+    
     private func layoutView() {
         view.backgroundColor = .white
         view.addSubview(editButton)
         view.addSubview(nameLabel)
         view.addSubview(numberLabel)
+        view.addSubview(deleteButton)
         
         setupConstrains()
     }
@@ -81,6 +96,10 @@ final class DetailViewController: UIViewController {
         numberLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 16).isActive = true
         numberLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
         numberLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
+        
+        deleteButton.topAnchor.constraint(equalTo: numberLabel.bottomAnchor, constant: 16).isActive = true
+        deleteButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        deleteButton.widthAnchor.constraint(equalToConstant: 150).isActive = true
     }
 
 }
